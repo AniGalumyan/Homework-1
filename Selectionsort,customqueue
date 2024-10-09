@@ -1,3 +1,4 @@
+//Homework with JS
 //Selection sort
 function SelectionSort(arr, x, currentI=0) {
     if (currentI === x) {
