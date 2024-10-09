@@ -1,0 +1,62 @@
+//Selection sort
+function SelectionSort(arr, x, currentI=0) {
+    if (currentI === x) {
+        return;
+    }
+    let min=currentI; 
+
+    for (let i=currentI+1; i<x; i++) {
+        if (arr[i]<arr[min]) {
+            min=i; 
+        }
+    }
+    if (min!==currentI) {
+        [arr[min],arr[currentI]] = [arr[currentI],arr[min]]; // Swap
+    }
+    SelectionSort(arr, x, currentI + 1);
+}
+
+let array = [7,67,5,28,11,90,0,6];
+SelectionSort(array, array.length); 
+console.log(array);
+
+// Custom Queue 
+class CustomQueue{
+ constructor(){
+    this.queue=[];
+}
+enqueue(x) {
+    this.queue.push(x);
+}
+ dequeue() {
+    if (this.isEmpty()) {
+        console.log("false");
+        return null;
+    }
+    return this.queue.shift();
+    }
+peek() {
+if (this.isEmpty()) {
+    console.log("false");
+    return null;
+    }
+    return this.queue[0];
+    }
+    isEmpty() {
+        return this.queue.length===0;
+    }
+    size() {
+        return this.queue.length;
+    }
+    printQueue() {
+        console.log(this.queue.join("; "));
+    }
+}
+const example=new CustomQueue();
+
+example.enqueue(89);
+example.enqueue(5);
+example.enqueue(628);
+example.printQueue(); 
+console.log(example.dequeue()); 
+console.log(example.peek());  
